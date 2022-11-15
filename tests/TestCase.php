@@ -2,7 +2,7 @@
 
 namespace Creagia\FilamentJsonField\Tests;
 
-use Creagia\FilamentJsonField\FilamentJsonFieldServiceProvider;
+use Creagia\FilamentJsonField\FilamentCodeFieldServiceProvider;
 use Filament\FilamentServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Livewire\LivewireServiceProvider;
@@ -24,7 +24,7 @@ class TestCase extends Orchestra
         return [
             LivewireServiceProvider::class,
             FilamentServiceProvider::class,
-            FilamentJsonFieldServiceProvider::class,
+            FilamentCodeFieldServiceProvider::class,
         ];
     }
 

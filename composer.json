@@ -1,14 +1,15 @@
 {
-    "name": "creagia/filament-json-field",
-    "description": "A Filamentphp input field to edit or view JSON data.",
+    "name": "creagia/filament-code-field",
+    "description": "A Filamentphp input field to edit or view code data.",
     "keywords": [
         "creagia",
         "laravel",
-        "filament-json-field",
+        "filament-code-field",
         "filament",
-        "filament field"
+        "filament field",
+        "code editor"
     ],
-    "homepage": "https://github.com/creagia/filament-json-field",
+    "homepage": "https://github.com/creagia/filament-code-field",
     "license": "MIT",
     "authors": [
         {
@@ -40,13 +41,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Creagia\\FilamentJsonField\\": "src",
-            "Creagia\\FilamentJsonField\\Database\\Factories\\": "database/factories"
+            "Creagia\\FilamentCodeField\\": "src",
+            "Creagia\\FilamentCodeField\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Creagia\\FilamentJsonField\\Tests\\": "tests"
+            "Creagia\\FilamentCodeField\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -69,10 +70,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Creagia\\FilamentJsonField\\FilamentJsonFieldServiceProvider"
+                "Creagia\\FilamentCodeField\\FilamentCodeFieldServiceProvider"
             ],
             "aliases": {
-                "FilamentJsonField": "Creagia\\FilamentJsonField\\Facades\\FilamentJsonField"
+                "FilamentCodeField": "Creagia\\FilamentCodeField\\Facades\\FilamentCodeField"
             }
         }
     },

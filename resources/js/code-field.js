@@ -9,7 +9,7 @@ import { solarizedDark } from 'cm6-theme-solarized-dark';
 let theme = new Compartment
 
 export default (Alpine) => {
-    Alpine.data('filamentJsonField', ({ state, disabled }) => {
+    Alpine.data('filamentCodeField', ({ state, disabled }) => {
         return {
             state,
             codeMirror: null,
@@ -17,7 +17,7 @@ export default (Alpine) => {
                 this.codeMirror = new EditorView({
                     doc: this.state ? this.state : '{\n\n}',
                     extensions: this.buildExtensionsArray(),
-                    parent: this.$refs.jsonBlock
+                    parent: this.$refs.codeBlock
                 })
 
                 window.addEventListener('dark-mode-toggled', (e) => {

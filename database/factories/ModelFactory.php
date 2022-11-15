@@ -1,6 +1,6 @@
 <?php
 
-namespace Creagia\FilamentJsonField\Database\Factories;
+namespace Creagia\FilamentCodeField\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 

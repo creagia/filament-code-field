@@ -1,5 +1,5 @@
-import JsonFieldAlpinePlugin from './components/json-field';
+import CodeFieldAlpinePlugin from './code-field';
 
 document.addEventListener('alpine:init', () => {
-    window.Alpine.plugin(JsonFieldAlpinePlugin);
+    window.Alpine.plugin(CodeFieldAlpinePlugin);
 })

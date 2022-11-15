@@ -1,1 +1,7 @@
 @tailwind utilities;
+
+.cm-editor * {
+    font-family: inherit ;
+    font-size: 15px;
+    line-height: 22px;
+}

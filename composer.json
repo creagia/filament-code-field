@@ -1,17 +1,19 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "creagia/filament-json-field",
+    "description": "A Filamentphp input field to edit or view JSON data.",
     "keywords": [
-        ":vendor_name",
+        "creagia",
         "laravel",
-        ":package_slug"
+        "filament-json-field",
+        "filament",
+        "filament field"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/creagia/filament-json-field",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Creagia",
+            "email": "info@creagia.com",
             "role": "Developer"
         }
     ],
@@ -38,13 +40,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories"
+            "Creagia\\FilamentJsonField\\": "src",
+            "Creagia\\FilamentJsonField\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "Creagia\\FilamentJsonField\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -67,10 +69,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Creagia\\FilamentJsonField\\FilamentJsonFieldServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "FilamentJsonField": "Creagia\\FilamentJsonField\\Facades\\FilamentJsonField"
             }
         }
     },

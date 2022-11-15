@@ -1,13 +1,13 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace Creagia\FilamentJsonField;
 
 use Filament\PluginServiceProvider;
 use Spatie\LaravelPackageTools\Package;
 
-class SkeletonServiceProvider extends PluginServiceProvider
+class FilamentJsonFieldServiceProvider extends PluginServiceProvider
 {
-    public static string $name = 'skeleton';
+    public static string $name = 'filament-json-field';
 
     protected array $resources = [
         // CustomResource::class,
@@ -22,15 +22,15 @@ class SkeletonServiceProvider extends PluginServiceProvider
     ];
 
     protected array $styles = [
-        'plugin-skeleton' => __DIR__.'/../resources/dist/skeleton.css',
+        'plugin-filament-json-field' => __DIR__.'/../resources/dist/filament-json-field.css',
     ];
 
     protected array $scripts = [
-        'plugin-skeleton' => __DIR__.'/../resources/dist/skeleton.js',
+        'plugin-filament-json-field' => __DIR__.'/../resources/dist/filament-json-field.js',
     ];
 
     // protected array $beforeCoreScripts = [
-    //     'plugin-skeleton' => __DIR__ . '/../resources/dist/skeleton.js',
+    //     'plugin-filament-json-field' => __DIR__ . '/../resources/dist/filament-json-field.js',
     // ];
 
     public function configurePackage(Package $package): void

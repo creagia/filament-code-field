@@ -20,6 +20,7 @@
         "tailwindcss": "^3.1.6"
     },
     "dependencies": {
+        "@codemirror/autocomplete": "^6.3.2",
         "@codemirror/commands": "^6.1.2",
         "@codemirror/lang-css": "^6.0.1",
         "@codemirror/lang-html": "^6.1.4",

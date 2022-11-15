@@ -14,3 +14,11 @@
     font-size: 15px;
     line-height: 25px;
 }
+
+.cm-lineNumbers {
+    padding-right: 10px;
+}
+
+.cm-content {
+    padding: 0.5rem !important;
+}

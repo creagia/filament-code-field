@@ -2,43 +2,30 @@
 
 namespace Creagia\FilamentCodeField;
 
+use Creagia\FilamentCodeField\Concerns\WithProgrammingLanguages;
 use Filament\Forms\Components\Field;
 
 class CodeField extends Field
 {
+    use WithProgrammingLanguages;
+
     protected string $view = 'filament-code-field::code-field';
 
-    public string $language = 'json';
+    public bool $lineNumbers = false;
 
-    public function setLanguage(string $language): static
+    public bool $autocompletion = true;
+
+    public function withLineNumbers(): static
     {
-        $this->language = $language;
+        $this->lineNumbers = true;
 
         return $this;
     }
 
-    public function css(): static
+    public function disableAutocompletion(): static
     {
-        return $this->setLanguage('css');
-    }
+        $this->autocompletion = false;
 
-    public function html(): static
-    {
-        return $this->setLanguage('html');
-    }
-
-    public function js(): static
-    {
-        return $this->setLanguage('javascript');
-    }
-
-    public function xml(): static
-    {
-        return $this->setLanguage('xml');
-    }
-
-    public function markdown(): static
-    {
-        return $this->setLanguage('markdown');
+        return $this;
     }
 }

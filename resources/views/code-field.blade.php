@@ -15,7 +15,9 @@
     <div x-data="filamentCodeField({
         state: $wire.{{ $applyStateBindingModifiers('entangle(\''.$getStatePath().'\')') }},
         language: '{{ $language }}',
-        disabled: {{ $isDisabled() ? 1 : 0 }}
+        disabled: {{ $isDisabled() ? 1 : 0 }},
+        withLineNumbers: {{ $lineNumbers ? 1 : 0 }},
+        withAutocompletion: {{ $autocompletion ? 1 : 0 }}
     })">
         <div wire:ignore
              x-ref="codeBlock"

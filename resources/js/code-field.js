@@ -1,20 +1,27 @@
-import { basicSetup, EditorView } from "codemirror"
+import { EditorView } from "codemirror"
 import { indentWithTab } from '@codemirror/commands';
-import { keymap } from '@codemirror/view'
+import { keymap, lineNumbers } from '@codemirror/view';
 import { Compartment } from '@codemirror/state';
 import { basicLight } from 'cm6-theme-basic-light';
 import { solarizedDark } from 'cm6-theme-solarized-dark';
 import { json } from "@codemirror/lang-json"
-import { css } from "@codemirror/lang-css"
+import { css } from '@codemirror/lang-css';
 import { html } from "@codemirror/lang-html"
 import { javascript } from "@codemirror/lang-javascript"
 import { xml } from "@codemirror/lang-xml"
 import { markdown } from "@codemirror/lang-markdown"
+import { autocompletion } from '@codemirror/autocomplete';
 
 let theme = new Compartment
 
 export default (Alpine) => {
-    Alpine.data('filamentCodeField', ({ state, language, disabled }) => {
+    Alpine.data('filamentCodeField', ({
+        state,
+        language,
+        disabled,
+        withLineNumbers,
+        withAutocompletion
+    }) => {
         return {
             state,
             codeMirror: null,
@@ -40,19 +47,28 @@ export default (Alpine) => {
                 const darkModeElement = document.querySelector('[dark-mode]')
                 const lightMode = darkModeElement._x_dataStack[0].theme === 'light'
 
-                return [
-                    basicSetup,
+                let extensions = [
                     this.parsers[language](),
                     keymap.of([indentWithTab]),
+                    theme.of(lightMode ? basicLight : solarizedDark),
+                    EditorView.contentAttributes.of({contenteditable: !disabled}),
                     EditorView.lineWrapping,
                     EditorView.updateListener.of((v) => {
                         if (v.docChanged) {
                             this.state = v.state.doc.toString();
                         }
-                    }),
-                    EditorView.contentAttributes.of({contenteditable: !disabled}),
-                    theme.of(lightMode ? basicLight : solarizedDark)
+                    })
                 ];
+
+                if (withAutocompletion) {
+                    extensions.push(autocompletion());
+                }
+
+                if (withLineNumbers) {
+                    extensions.push(lineNumbers());
+                }
+
+                return extensions;
             }
         }
     });

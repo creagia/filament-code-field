@@ -50,6 +50,15 @@
   transition-duration: 75ms;
 }
 
+.cm-editor {
+  background: transparent !important;
+}
+
+.cm-editor:not(.cm-focused) .cm-activeLine,
+.cm-editor:not(.cm-focused) .cm-activeLineGutter {
+  background: transparent !important;
+}
+
 .cm-editor * {
   font-family: inherit ;
   font-size: 15px;

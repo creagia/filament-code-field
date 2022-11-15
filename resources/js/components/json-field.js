@@ -2,21 +2,39 @@ import { basicSetup, EditorView } from "codemirror"
 import { json } from "@codemirror/lang-json"
 import { indentWithTab } from '@codemirror/commands';
 import { keymap } from '@codemirror/view'
+import { Compartment } from '@codemirror/state';
+import { basicLight } from 'cm6-theme-basic-light';
+import { solarizedDark } from 'cm6-theme-solarized-dark';
+
+let theme = new Compartment
 
 export default (Alpine) => {
     Alpine.data('filamentJsonField', ({ state, disabled }) => {
         return {
             state,
+            codeMirror: null,
             init() {
-                console.log('disabled: ' + disabled ? 1 : 0);
-                new EditorView({
-                    doc: this.state,
+                this.codeMirror = new EditorView({
+                    doc: this.state ? this.state : '{\n\n}',
                     extensions: this.buildExtensionsArray(),
                     parent: this.$refs.jsonBlock
                 })
+
+                window.addEventListener('dark-mode-toggled', (e) => {
+                    this.codeMirror.dispatch({
+                        effects: theme.reconfigure(
+                            e.detail === 'dark'
+                                ? solarizedDark
+                                : basicLight
+                        )
+                    })
+                });
             },
             buildExtensionsArray() {
-                let extensions = [
+                const darkModeElement = document.querySelector('[dark-mode]')
+                const lightMode = darkModeElement._x_dataStack[0].theme === 'light'
+
+                return [
                     basicSetup,
                     json(),
                     keymap.of([indentWithTab]),
@@ -26,12 +44,9 @@ export default (Alpine) => {
                             this.state = v.state.doc.toString();
                         }
                     }),
-                    EditorView.contentAttributes.of({ contenteditable: !disabled })
+                    EditorView.contentAttributes.of({ contenteditable: !disabled }),
+                    theme.of(lightMode ? basicLight : solarizedDark)
                 ];
-
-                // add conditional extensions...
-
-                return extensions;
             }
         }
     });

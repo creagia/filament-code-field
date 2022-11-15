@@ -2,11 +2,11 @@
 
 namespace Creagia\FilamentJsonField\Tests;
 
+use Creagia\FilamentJsonField\FilamentJsonFieldServiceProvider;
 use Filament\FilamentServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Creagia\FilamentJsonField\FilamentJsonFieldServiceProvider;
 
 class TestCase extends Orchestra
 {

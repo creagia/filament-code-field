@@ -13,6 +13,6 @@ class FilamentJsonFieldServiceProvider extends PluginServiceProvider
     ];
 
     protected array $beforeCoreScripts = [
-        'filament-json-field-scripts' => __DIR__ . '/../resources/dist/filament-json-field.js',
+        'filament-json-field-scripts' => __DIR__.'/../resources/dist/filament-json-field.js',
     ];
 }

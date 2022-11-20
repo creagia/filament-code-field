@@ -2,30 +2,16 @@
 
 namespace Creagia\FilamentCodeField;
 
-use Creagia\FilamentCodeField\Concerns\WithProgrammingLanguages;
+use Creagia\FilamentCodeField\Concerns\Autocompletion;
+use Creagia\FilamentCodeField\Concerns\LineNumbers;
+use Creagia\FilamentCodeField\Concerns\ProgrammingLanguages;
 use Filament\Forms\Components\Field;
 
 class CodeField extends Field
 {
-    use WithProgrammingLanguages;
+    use ProgrammingLanguages;
+    use Autocompletion;
+    use LineNumbers;
 
     protected string $view = 'filament-code-field::code-field';
-
-    public bool $lineNumbers = false;
-
-    public bool $autocompletion = true;
-
-    public function withLineNumbers(): static
-    {
-        $this->lineNumbers = true;
-
-        return $this;
-    }
-
-    public function disableAutocompletion(): static
-    {
-        $this->autocompletion = false;
-
-        return $this;
-    }
 }

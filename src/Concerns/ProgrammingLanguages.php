@@ -2,7 +2,7 @@
 
 namespace Creagia\FilamentCodeField\Concerns;
 
-trait WithProgrammingLanguages
+trait ProgrammingLanguages
 {
     public string $language = 'json';
 
@@ -13,28 +13,28 @@ trait WithProgrammingLanguages
         return $this;
     }
 
-    public function css(): static
+    public function jsonField(): static
+    {
+        return $this->setLanguage('json');
+    }
+
+    public function cssField(): static
     {
         return $this->setLanguage('css');
     }
 
-    public function html(): static
+    public function htmlField(): static
     {
         return $this->setLanguage('html');
     }
 
-    public function js(): static
+    public function jsField(): static
     {
         return $this->setLanguage('javascript');
     }
 
-    public function xml(): static
+    public function xmlField(): static
     {
         return $this->setLanguage('xml');
-    }
-
-    public function markdown(): static
-    {
-        return $this->setLanguage('markdown');
     }
 }

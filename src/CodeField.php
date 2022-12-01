@@ -15,7 +15,7 @@ class CodeField extends Field
 
     const PHP = 'php';
 
-    const JS = 'js';
+    const JS = 'javascript';
 
     const JSON = 'json';
 

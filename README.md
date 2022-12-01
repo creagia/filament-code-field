@@ -9,6 +9,8 @@ A [CodeMirror](https://codemirror.net/) powered code field for the Filamentphp a
 
 With code autocompletion, light/dark modes, multiple languages, read-only mode and more.
 
+Check screenshots and read more about the package in our [blog post](https://creagia.com/blog/a-code-field-for-the-filamentphp-admin-panel-and-form-builder).
+
 ## Installation
 
 You can install the package via composer:

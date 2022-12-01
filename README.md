@@ -2,7 +2,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/creagia/filament-code-field.svg?style=flat-square)](https://packagist.org/packages/creagia/filament-code-field)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/creagia/filament-code-field/run-tests?label=tests)](https://github.com/creagia/filament-code-field/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/creagia/filament-code-field/Check%20&%20fix%20styling?label=code%20style)](https://github.com/creagia/filament-code-field/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/creagia/filament-code-field/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/creagia/filament-code-field/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/creagia/filament-code-field.svg?style=flat-square)](https://packagist.org/packages/creagia/filament-code-field)
 
 A [CodeMirror](https://codemirror.net/) powered code field for the Filamentphp admin panel and form builder.

@@ -8,6 +8,7 @@ import { json } from "@codemirror/lang-json"
 import { html } from "@codemirror/lang-html"
 import { css } from '@codemirror/lang-css';
 import { xml } from "@codemirror/lang-xml"
+import { sql } from "@codemirror/lang-sql"
 import { autocompletion } from '@codemirror/autocomplete';
 import darkTheme from './themes/dark'
 import lightTheme from './themes/light'
@@ -25,7 +26,7 @@ export default (Alpine) => {
         return {
             state,
             codeMirror: null,
-            parsers: { php, javascript, json, html, css, xml },
+            parsers: { php, javascript, json, html, css, xml, sql },
             init() {
                 this.codeMirror = new EditorView({
                     doc: this.parsedState(),

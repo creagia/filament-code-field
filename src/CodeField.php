@@ -25,5 +25,7 @@ class CodeField extends Field
 
     const XML = 'xml';
 
+    const SQL = 'sql';
+
     protected string $view = 'filament-code-field::code-field';
 }

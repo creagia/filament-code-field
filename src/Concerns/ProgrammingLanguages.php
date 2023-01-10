@@ -51,6 +51,11 @@ trait ProgrammingLanguages
         return $this->setLanguage(CodeField::XML);
     }
 
+    public function sqlField(): static
+    {
+        return $this->setLanguage(CodeField::SQL);
+    }
+
     public static function availableLanguages(): array
     {
         return [
@@ -60,6 +65,7 @@ trait ProgrammingLanguages
             CodeField::HTML,
             CodeField::CSS,
             CodeField::XML,
+            CodeField::SQL,
         ];
     }
 }

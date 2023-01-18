@@ -29,7 +29,7 @@ export default (Alpine) => {
             parsers: { php, javascript, json, html, css, xml, sql },
             init() {
                 this.codeMirror = new EditorView({
-                    doc: this.parsedState(),
+                    doc: this.state,
                     extensions: this.buildExtensionsArray(),
                     parent: this.$refs.codeBlock
                 })
@@ -43,15 +43,6 @@ export default (Alpine) => {
                         )
                     })
                 });
-            },
-            parsedState() {
-                if (language === 'json') {
-                    return this.state
-                        ? JSON.stringify(this.state, null, 2)
-                        : '{\n\n}'
-                }
-
-                return this.state
             },
             buildExtensionsArray() {
                 const darkModeElement = document.querySelector('[dark-mode]')

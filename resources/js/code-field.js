@@ -46,7 +46,9 @@ export default (Alpine) => {
             },
             buildExtensionsArray() {
                 const darkModeElement = document.querySelector('[dark-mode]')
-                const lightMode = darkModeElement._x_dataStack[0].theme === 'light'
+                const lightMode = darkModeElement
+                        ? darkModeElement._x_dataStack[0].theme === 'light'
+                        : true
 
                 let extensions = [
                     this.parsers[language](),

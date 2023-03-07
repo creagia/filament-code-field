@@ -12,6 +12,12 @@
     :state-path="$getStatePath()"
     :disabled="$isDisabled()"
 >
+    <style>
+        :root {
+            --minInputHeight: {{ $getMinHeight() }};
+            --maxInputHeight: {{ $getMaxHeight() }};
+        }
+    </style>
     <div x-data="filamentCodeField({
         state: $wire.{{ $applyStateBindingModifiers('entangle(\''.$getStatePath().'\')') }},
         language: '{{ $language }}',

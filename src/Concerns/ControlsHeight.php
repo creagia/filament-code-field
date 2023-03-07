@@ -6,11 +6,11 @@ use Closure;
 
 trait ControlsHeight
 {
-    protected string | Closure | null $maxHeight = null;
+    protected string|Closure|null $maxHeight = null;
 
-    protected string | Closure | null $minHeight = null;
+    protected string|Closure|null $minHeight = null;
 
-    public function maxHeight(string | int $height): static
+    public function maxHeight(string|int $height): static
     {
         if (! is_string($height)) {
             $height .= 'px';
@@ -26,7 +26,7 @@ trait ControlsHeight
         return $this->evaluate($this->maxHeight);
     }
 
-    public function minHeight(string | int $height): static
+    public function minHeight(string|int $height): static
     {
         if (! is_string($height)) {
             $height .= 'px';

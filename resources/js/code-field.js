@@ -18,6 +18,7 @@ let theme = new Compartment
 export default (Alpine) => {
     Alpine.data('filamentCodeField', ({
         state,
+        displayMode,
         language,
         disabled,
         withLineNumbers,
@@ -33,6 +34,18 @@ export default (Alpine) => {
                     extensions: this.buildExtensionsArray(),
                     parent: this.$refs.codeBlock
                 })
+
+                if (displayMode) {
+                    this.$watch('state', newState => {
+                        this.codeMirror.dispatch({
+                            changes: {
+                                from: 0,
+                                to: this.codeMirror.state.doc.length,
+                                insert: newState
+                            }
+                        });
+                    })
+                }
 
                 window.addEventListener('dark-mode-toggled', (e) => {
                     this.codeMirror.dispatch({
@@ -54,14 +67,19 @@ export default (Alpine) => {
                     this.parsers[language](),
                     keymap.of([indentWithTab]),
                     theme.of(lightMode ? lightTheme : darkTheme),
-                    EditorView.contentAttributes.of({contenteditable: !disabled}),
-                    EditorView.lineWrapping,
-                    EditorView.updateListener.of((v) => {
-                        if (v.docChanged) {
-                            this.state = v.state.doc.toString();
-                        }
-                    })
+                    EditorView.contentAttributes.of({
+                        contenteditable: !disabled && !displayMode
+                    }),
+                    EditorView.lineWrapping
                 ];
+
+                if (! displayMode) {
+                    extensions.push(EditorView.updateListener.of((v) => {
+                        if (v.docChanged) {
+                            this.state = v.state.doc.toString()
+                        }
+                    }))
+                }
 
                 if (withAutocompletion) {
                     extensions.push(autocompletion());

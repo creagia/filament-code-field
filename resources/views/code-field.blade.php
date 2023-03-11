@@ -20,6 +20,7 @@
     </style>
     <div x-data="filamentCodeField({
         state: $wire.{{ $applyStateBindingModifiers('entangle(\''.$getStatePath().'\')') }},
+        displayMode: {{ $displayMode ? 1 : 0 }},
         language: '{{ $language }}',
         disabled: {{ $isDisabled() ? 1 : 0 }},
         withLineNumbers: {{ $lineNumbers ? 1 : 0 }},

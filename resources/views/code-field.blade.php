@@ -11,6 +11,7 @@
     :required="$isRequired()"
     :state-path="$getStatePath()"
     :disabled="$isDisabled()"
+    dir="ltr"
 >
     <style>
         :root {

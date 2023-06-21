@@ -13,7 +13,7 @@ import { autocompletion } from '@codemirror/autocomplete';
 import darkTheme from './themes/dark'
 import lightTheme from './themes/light'
 
-let theme = new Compartment
+let themeCompartment = new Compartment
 
 export default (Alpine) => {
     Alpine.data('filamentCodeField', ({
@@ -49,7 +49,7 @@ export default (Alpine) => {
 
                 window.addEventListener('dark-mode-toggled', (e) => {
                     this.codeMirror.dispatch({
-                        effects: theme.reconfigure(
+                        effects: themeCompartment.reconfigure(
                             e.detail === 'dark'
                                 ? darkTheme
                                 : lightTheme
@@ -58,15 +58,10 @@ export default (Alpine) => {
                 });
             },
             buildExtensionsArray() {
-                const darkModeElement = document.querySelector('[dark-mode]')
-                const lightMode = darkModeElement
-                        ? darkModeElement._x_dataStack[0].theme === 'light'
-                        : true
-
                 let extensions = [
                     this.parsers[language](),
                     keymap.of([indentWithTab]),
-                    theme.of(lightMode ? lightTheme : darkTheme),
+                    themeCompartment.of(theme === 'light' ? lightTheme : darkTheme),
                     EditorView.contentAttributes.of({
                         contenteditable: !disabled && !displayMode
                     }),

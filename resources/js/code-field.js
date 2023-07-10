@@ -58,10 +58,12 @@ export default (Alpine) => {
                 });
             },
             buildExtensionsArray() {
+                let themeName = typeof theme === 'undefined' ? 'light' : theme
+
                 let extensions = [
                     this.parsers[language](),
                     keymap.of([indentWithTab]),
-                    themeCompartment.of(theme === 'light' ? lightTheme : darkTheme),
+                    themeCompartment.of(themeName === 'light' ? lightTheme : darkTheme),
                     EditorView.contentAttributes.of({
                         contenteditable: !disabled && !displayMode
                     }),

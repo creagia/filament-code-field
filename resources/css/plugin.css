@@ -22,11 +22,3 @@
 .cm-content {
     padding: 0.5rem !important;
 }
-
-.cm-scroller {
-    max-height: var(--maxInputHeight) !important;
-}
-
-.cm-scroller, .cm-gutter {
-    min-height: var(--minInputHeight) !important;
-}

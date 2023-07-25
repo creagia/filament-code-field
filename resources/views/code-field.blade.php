@@ -32,6 +32,8 @@
         disabled: {{ $isDisabled() ? 1 : 0 }},
         withLineNumbers: {{ $lineNumbers ? 1 : 0 }},
         withAutocompletion: {{ $autocompletion ? 1 : 0 }}
+        x-load-css="[@js(\Filament\Support\Facades\FilamentAsset::getStyleHref('filament-code-field', package: 'creagia/filament-code-field'))]"
+        x-load-js="[@js(\Filament\Support\Facades\FilamentAsset::getScriptSrc('filament-code-field', package: 'creagia/filament-code-field'))]"
     })">
         <div id="{{ $codeFieldId }}" wire:ignore>
             <div x-ref="codeBlock"

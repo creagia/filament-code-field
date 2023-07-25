@@ -20,7 +20,7 @@
     ],
     "require": {
         "php": "^8.0",
-        "filament/filament": "^2.0",
+        "filament/filament": "^3.0",
         "spatie/laravel-package-tools": "^1.13.5",
         "illuminate/contracts": "^9.0||^10.0"
     },
@@ -71,10 +71,7 @@
         "laravel": {
             "providers": [
                 "Creagia\\FilamentCodeField\\FilamentCodeFieldServiceProvider"
-            ],
-            "aliases": {
-                "FilamentCodeField": "Creagia\\FilamentCodeField\\Facades\\FilamentCodeField"
-            }
+            ]
         }
     },
     "minimum-stability": "dev",

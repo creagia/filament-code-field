@@ -1,17 +1,6 @@
 <x-dynamic-component
     :component="$getFieldWrapperView()"
-    :id="$getId()"
-    :label="$getLabel()"
-    :label-sr-only="$isLabelHidden()"
-    :helper-text="$getHelperText()"
-    :hint="$getHint()"
-    :hint-action="$getHintAction()"
-    :hint-color="$getHintColor()"
-    :hint-icon="$getHintIcon()"
-    :required="$isRequired()"
-    :state-path="$getStatePath()"
-    :disabled="$isDisabled()"
-    dir="ltr"
+    :field="$field"
 >
     @php($codeFieldId = 'code-field-'.\Illuminate\Support\Str::slug($getId()))
 
@@ -27,15 +16,19 @@
 
     <div x-data="filamentCodeField({
         state: $wire.{{ $applyStateBindingModifiers('entangle(\''.$getStatePath().'\')') }},
-        displayMode: {{ $displayMode ? 1 : 0 }},
-        language: '{{ $language }}',
-        disabled: {{ $isDisabled() ? 1 : 0 }},
-        withLineNumbers: {{ $lineNumbers ? 1 : 0 }},
-        withAutocompletion: {{ $autocompletion ? 1 : 0 }}
-    })">
+        displayMode: {{ $field->displayMode ? 1 : 0 }},
+        language: '{{ $field->language }}',
+        disabled: {{ $field->isDisabled() ? 1 : 0 }},
+        withLineNumbers: {{ $field->lineNumbers ? 1 : 0 }},
+        withAutocompletion: {{ $field->autocompletion ? 1 : 0 }}
+    })"
+        x-load-css="[@js(\Filament\Support\Facades\FilamentAsset::getStyleHref('filament-code-field', package: 'creagia/filament-code-field'))]"
+        x-load-js="[@js(\Filament\Support\Facades\FilamentAsset::getScriptSrc('filament-code-field', package: 'creagia/filament-code-field'))]"
+    >
         <div id="{{ $codeFieldId }}" wire:ignore>
+
             <div x-ref="codeBlock"
-                 class="bg-white border overflow-hidden block w-full transition duration-75 rounded-lg shadow-sm focus:border-primary-500 focus:ring-1 focus:ring-inset focus:ring-primary-500 disabled:opacity-70 dark:bg-gray-700 dark:text-white dark:focus:border-primary-500 border-gray-300 dark:border-gray-600"
+                 class="fi-input-wrapper !caret-black flex rounded-lg shadow-sm ring-1 transition duration-75 bg-white focus-within:ring-2 dark:!caret-white dark:bg-white/5 ring-gray-950/10 focus-within:ring-primary-600 dark:ring-white/20 dark:focus-within:ring-primary-500 fi-fo-text-input overflow-hidden"
             ></div>
         </div>
     </div>

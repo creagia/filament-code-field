@@ -2,17 +2,28 @@
 
 namespace Creagia\FilamentCodeField;
 
-use Filament\PluginServiceProvider;
+use Filament\Support\Assets\Css;
+use Filament\Support\Assets\Js;
+use Filament\Support\Facades\FilamentAsset;
+use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class FilamentCodeFieldServiceProvider extends PluginServiceProvider
+class FilamentCodeFieldServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'filament-code-field';
 
-    protected array $styles = [
-        'filament-code-field-styles' => __DIR__.'/../resources/dist/filament-code-field.css',
-    ];
+    public function configurePackage(Package $package): void
+    {
+        $package->name(static::$name)
+            ->hasAssets()
+            ->hasViews();
+    }
 
-    protected array $beforeCoreScripts = [
-        'filament-code-field-scripts' => __DIR__.'/../resources/dist/filament-code-field.js',
-    ];
+    public function packageBooted(): void
+    {
+        FilamentAsset::register([
+            Css::make(static::$name, __DIR__ . '/../resources/dist/filament-code-field.css'),
+            Js::make(static::$name, __DIR__ . '/../resources/dist/filament-code-field.js'),
+        ], 'creagia/filament-code-field');
+    }
 }

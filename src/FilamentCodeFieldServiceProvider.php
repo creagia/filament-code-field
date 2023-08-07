@@ -22,8 +22,8 @@ class FilamentCodeFieldServiceProvider extends PackageServiceProvider
     public function packageBooted(): void
     {
         FilamentAsset::register([
-            Css::make(static::$name, __DIR__ . '/../resources/dist/filament-code-field.css'),
-            Js::make(static::$name, __DIR__ . '/../resources/dist/filament-code-field.js'),
+            Css::make(static::$name, __DIR__.'/../resources/dist/filament-code-field.css'),
+            Js::make(static::$name, __DIR__.'/../resources/dist/filament-code-field.js'),
         ], 'creagia/filament-code-field');
     }
 }

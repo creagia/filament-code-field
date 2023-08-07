@@ -19,6 +19,12 @@ You can install the package via composer:
 composer require creagia/filament-code-field
 ```
 
+### ⚠️ Use version `1.x.x` for Filament 2 support ⚠️
+```bash
+composer require "creagia/filament-code-field:^1.0.0"
+```
+
+
 ## Usage
 
 Creating a code field is straightforward, just instantiate the `CodeField` class for the desired property.

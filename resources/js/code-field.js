@@ -58,7 +58,17 @@ export default (Alpine) => {
                 });
             },
             buildExtensionsArray() {
-                let themeName = typeof theme === 'undefined' ? 'light' : theme
+                let themeName;
+
+                if (typeof theme === 'undefined') {
+                    themeName = 'light';
+                } else if (theme === 'system') {
+                    themeName = window.matchMedia('(prefers-color-scheme: dark)').matches
+                            ? 'dark'
+                            : 'light';
+                } else {
+                    themeName = theme;
+                }
 
                 let extensions = [
                     this.parsers[language](),

@@ -11,11 +11,11 @@ use Filament\Forms\Components\Field;
 
 class CodeField extends Field
 {
-    use ProgrammingLanguages;
     use Autocompletion;
     use ControlsHeight;
     use HasDisplayMode;
     use LineNumbers;
+    use ProgrammingLanguages;
 
     const PHP = 'php';
 

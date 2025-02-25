@@ -21,7 +21,7 @@ You can install the package via composer:
 composer require creagia/filament-code-field
 ```
 
-### ⚠️ Use version `2.x.x` for Filament 3 and Laravel 10 support ⚠️
+### ⚠️ Use version `2.x.x` for Filament 3 and Laravel 10-12 support ⚠️
 ```bash
 composer require "creagia/filament-code-field:^2.0.0"
 ```
